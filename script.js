@@ -37,15 +37,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Navbar Background Change on Scroll
 const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
+const applyNavbarState = () => {
     if (window.scrollY > 100) {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+        navbar.classList.add('scrolled');
     } else {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-        navbar.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+        navbar.classList.remove('scrolled');
     }
-});
+};
+
+window.addEventListener('scroll', applyNavbarState);
+applyNavbarState();
 
 // Animate Elements on Scroll
 const observerOptions = {
@@ -149,6 +150,30 @@ if (heroTitle) {
     
     // Uncomment to enable typing effect
     // typeWriter();
+}
+
+// Theme Toggle (light/dark)
+const themeToggle = document.getElementById('themeToggle');
+const root = document.documentElement;
+
+const setTheme = (theme) => {
+    root.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+    if (themeToggle) {
+        themeToggle.textContent = theme === 'dark' ? 'Light Mode' : 'Dark Mode';
+    }
+};
+
+const storedTheme = localStorage.getItem('theme');
+const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
+setTheme(initialTheme);
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+        setTheme(current === 'dark' ? 'light' : 'dark');
+    });
 }
 
 // Particle effect for hero section (optional - requires particles.js library)

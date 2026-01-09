@@ -20,6 +20,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">Dark Mode</button>
             <div class="burger">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -102,7 +103,7 @@
                     <div class="skill-items">
                         <span class="skill-tag">Git</span>
                         <span class="skill-tag">GitHub</span>
-                        <span class="skill-tag">VS Code</span>\
+                        <span class="skill-tag">VS Code</span>
                         <span class="skill-tag">Visual Studio</span>
                         <span class="skill-tag">Unity</span>
                         <span class="skill-tag">Cloudflare Pages</span>
@@ -168,15 +169,15 @@
                         </a>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" action="https://formspree.io/f/xlggrrwl" method="POST">
                     <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        <input type="text" name="name" placeholder="Your Name" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
                     </div>
                     <div class="form-group">
-                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
