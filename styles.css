@@ -335,6 +335,7 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 0.8rem;
+    align-items: flex-start; /* prevent chips from stretching vertically */
 }
 
 .skill-tag {
@@ -344,6 +345,10 @@ section {
     border-radius: 20px;
     font-size: 0.9rem;
     transition: var(--transition);
+    display: inline-flex; /* keep height to content */
+    align-items: center;
+    line-height: 1; /* avoid tall line boxes */
+    white-space: nowrap; /* keep short labels on one line */
 }
 
 .skill-tag:hover {
